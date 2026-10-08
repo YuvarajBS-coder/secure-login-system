@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h1>Welcome, {{ username }}!</h1>
+    <p>Your account is protected using bcrypt password hashing and Flask session management.</p>
+
+    <div class="feature">
+        <h3>Security Features</h3>
+        <ul>
+            <li>Hashed passwords</li>
+            <li>Parameterized SQL queries</li>
+            <li>Session-based authentication</li>
+            <li>Input validation</li>
+            <li>Optional TOTP 2FA</li>
+        </ul>
+    </div>
+
+    <a class="button" href="{{ url_for('setup_2fa') }}">Set Up 2FA</a>
+    <a class="button secondary" href="{{ url_for('logout') }}">Logout</a>
+</div>
+{% endblock %}

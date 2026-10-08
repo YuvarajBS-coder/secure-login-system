@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h1>Two-Factor Authentication</h1>
+    <p>Add this secret to a TOTP authenticator app such as Google Authenticator or Microsoft Authenticator.</p>
+
+    <div class="secret">{{ secret }}</div>
+    <p class="muted">For a demo project, the TOTP secret is displayed here. In production, protect secrets carefully.</p>
+
+    <form method="POST">
+        <label>Enter 6-digit code</label>
+        <input type="text" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required>
+        <button type="submit">Verify 2FA</button>
+    </form>
+
+    <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+</div>
+{% endblock %}
